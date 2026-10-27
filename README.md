@@ -23,7 +23,7 @@ A separate WordPress plugin that listens to Open Bulk Buying member hooks and ca
 
 4. Activate this plugin before processing signups with either consent path.
 
-The current Open Bulk Buying main branch does not emit a dedicated hook for newsletter sign up, so the form-only path still needs to be wired there. An unchecked box or missing consent never creates a contact. If neither path supplies a choice for an active member, an administrator error is recorded. Keep the API key out of the repository and browser code.
+The current Open Bulk Buying main branch does not call `openbb_newsletter_consent_changed` after a member signs up. The signup form still needs to pass the newsletter checkbox's checked or unchecked value to that hook after registration succeeds, so this plugin knows whether to create a Zeffy contact when the member becomes active. An unchecked box or missing consent never creates a contact. If neither path supplies a choice for an active member, an administrator error is recorded. Keep the API key out of the repository and browser code.
 
 ### Main plugin handoff for the form-only checkbox
 
